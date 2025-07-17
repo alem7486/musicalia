@@ -1,0 +1,134 @@
+/* Carrusel horizontal */
+.carousel-container {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 16px;
+}
+
+.carousel-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Tarjeta base */
+.card {
+  flex-shrink: 0;
+  width: 240px;
+  scroll-snap-align: center;
+  border-radius: 5px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  padding: 16px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+/* Imagen */
+.imganContainer {
+  width: 100%;
+  height: 180px;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imagen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Textos */
+.nombre {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.precio {
+  font-size: 16px;
+  font-weight: 700;
+  color: #4f0df3;
+  margin-bottom: 4px;
+}
+
+.stock {
+  font-size: 13px;
+  color: #db0707;
+  margin-bottom: 12px;
+}
+
+/* Cantidad */
+.cantidadContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.qtyButton {
+  background-color: #fff;
+  color: #4f0df3;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.qtyButton:hover {
+  background-color: #190d77;
+  color: white;
+}
+
+/* Botón de agregar */
+.btnAdd {
+  background-color: white;
+  color: #4f0df3;
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-bottom: 8px;
+}
+
+.btnAdd:hover {
+  background-color: #4f0df3;
+  color: white;
+}
+
+/* Link de detalles */
+.verMas {
+  text-decoration: none;
+  font-weight: 600;
+  color: white;
+  background-color: #4f0df3;
+  padding: 6px 12px;
+  border-radius: 8px;
+  display: inline-block;
+  margin-top: 6px;
+}
+
+.verMas:hover {
+  background-color: rgba(255,255,255,0.2);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .card {
+    width: 180px;
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,116 @@
+.card {
+  background-color: #ff6e61 !important;
+}
+
+.cart-drawer {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 340px;
+  height: 100vh;
+  background-color: #5e4b8b;
+  padding: 20px;
+  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(100%);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cart-drawer.open {
+  transform: translateX(0);
+}
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-header h2 {
+  font-family: 'Rock Salt', cursive;
+  font-size: 24px;
+  margin: 0;
+  color: #ffb84d;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: #ffb84d;
+  cursor: pointer;
+}
+
+.cart-content {
+  flex-grow: 1;
+  margin-top: 16px;
+  overflow-y: auto;
+}
+
+.cart-item {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 12px;
+}
+
+.cart-item li {
+  background-color: #6d9dc5;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #5e4b8b;
+  font-size: 15px;
+}
+
+.cart-item button {
+  background: none;
+  border: none;
+  color: #ff4f7f;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.cart-footer {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+.cart-footer p {
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffb84d;
+  margin-bottom: 12px;
+}
+
+.btnCheckout {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background-color: #ffb84d;
+  color: #5e4b8b;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btnCheckout:hover {
+  background-color: #da1b61;
+  color: white;
+}
+
+/* Mensaje de carrito vacío */
+.cart-content p {
+  text-align: center;
+  font-weight: bold;
+  color: #ff4f7f;
+  margin-top: 30px;
+}
