@@ -1,25 +1,16 @@
 import React, { useContext, useState } from 'react';
 import Productos from './Productos';
 import { CartContext } from '../context/CartContext';
-import './styleProductos.css'; // Asegurate de tener estilos para .pagination y .active
+import './styleProductos.css';
 
 const ProductList = () => {
   const { productos } = useContext(CartContext);
-
-
-  const ProductList = ({ productos }) => (
-  <div className="carousel-container">
-    {productos.map(producto => (
-      <Productos key={producto.id} producto={producto} />
-    ))}
-  </div>
-);
 
   // Estados de paginación
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 6;
 
-  //Cálculo de productos actuales
+  // Cálculo de productos actuales
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const currentProducts = productos.slice(indexOfFirstProduct, indexOfLastProduct);
@@ -30,13 +21,14 @@ const ProductList = () => {
     <div>
       <h2 className="tituloGrid">Nuestros cursos musicales 🎵</h2>
 
-      <div className="cardsContainer">
+      {/* 🎶 Contenedor con estilo horizontal */}
+      <div className="card-container">
         {currentProducts.map(producto => (
           <Productos key={producto.id} producto={producto} />
         ))}
       </div>
 
-      {/* 🎼 Paginador visual */}
+      {/* 🎼 Paginador visual con íconos */}
       <div className="pagination">
         <button onClick={() => setCurrentPage(currentPage - 1)} disabled={currentPage === 1}>
           🎶 Anterior
@@ -61,3 +53,5 @@ const ProductList = () => {
 };
 
 export default ProductList;
+
+
