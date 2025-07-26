@@ -17,6 +17,18 @@ const Productos = ({ producto }) => {
     setCantidad(prev => (prev > 1 ? prev - 1 : prev));
   };
 
+const Productos = ({ producto }) => (
+  <div className="card">
+    <div className="imganContainer">
+      <img src={producto.imagen} alt={producto.nombre} className="imagen" />
+    </div>
+    <div className="nombre">{producto.nombre}</div>
+    <div className="precio">${producto.precio}</div>
+    <div className="stock">{producto.stock} disponibles</div>
+    {/* cantidad + botón + link */}
+  </div>
+);
+
   return (
     <section className='card'>
       <div className='imganContainer'>
