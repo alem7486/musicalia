@@ -31,7 +31,7 @@ const {isAuthenticated} = useContext(CartContext)
 
         <Route path='/contacto' element={<Contactos />}/>
 
-       <Route
+<Route
   path='/admin'
   element={
     <RutasProtegidas isAuthenticated={isAuthenticated}>
@@ -39,6 +39,10 @@ const {isAuthenticated} = useContext(CartContext)
     </RutasProtegidas>
   }
 />
+
+
+{/* <Route path='/admin' element={<RutasProtegidas isAuthenticated={isAuthenticated}><Admin/></RutasProtegidas>} /> */}
+
         <Route path='/login' element={<Login/>}/>
 
         <Route path='*' element={<NotFound/>}/>
