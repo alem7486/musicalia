@@ -12,10 +12,10 @@ import Admin from './pages/Admin'
 import Login from './pages/Login'
 import {CartContext} from './context/CartContext'
 
-
 function App() {
 const {isAuthenticated} = useContext(CartContext)
   
+console.log('Probando')
 
   return (
     
@@ -53,4 +53,4 @@ const {isAuthenticated} = useContext(CartContext)
   )
 }
 
-export default App
+export default App 

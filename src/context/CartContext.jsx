@@ -39,17 +39,19 @@ export const CartProvider = ({ children }) => {
 
     const productosFiltrados = productos.filter((producto)=> producto?.nombre.toLowerCase().includes(busqueda.toLowerCase()))
 
-    const handleAddToCart = (product) => {
+const handleAddToCart = (product) => {
+    const productInCart = cart.find((item) => item.id === product.id);
+    const cantidad = product.cantidad ?? 1;
 
-        const productInCart = cart.find((item) => item.id === product.id);
-        if (productInCart) {
-
-            setCart(cart.map((item) => item.id === product.id ? { ...item, cantidad: product.cantidad } : item));
-        } else {
-            toast.success(`El producto ${product.nombre} se ha agregado al carrito`)
-            setCart([...cart, { ...product, cantidad: product.cantidad }]);
-        }
-    };
+    if (productInCart) {
+        setCart(cart.map((item) =>
+            item.id === product.id ? { ...item, cantidad } : item
+        ));
+    } else {
+        toast.success(`El producto ${product.nombre} se ha agregado al carrito`);
+        setCart([...cart, { ...product, cantidad }]);
+    }
+};
 
     const handleDeleteFromCart = (product) => {
         toast.error(`El producto ${product.nombre} se ha eliminado al carrito`)

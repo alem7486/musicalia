@@ -1,24 +1,25 @@
+// Cart.jsx
 import React, { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
 
-
 const Cart = () => {
-  const { cartItems } = useContext(CartContext);
+  const { cart } = useContext(CartContext);
 
   return (
     <div className="cart-container">
       <h2>🛒 Tu carrito musical</h2>
 
-      {cartItems.length === 0 ? (
-        <p>Tu carrito está vacío 🎶</p>
-      ) : (
+      {Array.isArray(cart) && cart.length > 0 ? (
         <ul>
-          {cartItems.map(item => (
+          {cart.map(item => (
             <li key={item.id}>
               <strong>{item.nombre}</strong> - {item.precio} ARS
+              {item.cantidad && <span> 🎶 Cantidad: {item.cantidad}</span>}
             </li>
           ))}
         </ul>
+      ) : (
+        <p>Tu carrito está vacío 🎵 ¡Agregá algo que suene bien!</p>
       )}
     </div>
   );
