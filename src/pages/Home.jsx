@@ -1,30 +1,24 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import Header from '../components/estaticos/Header'
 import Footer from '../components/estaticos/Footer'
-import ProductList from '../components/ProductList'
-import loading from '../assets/loading.gif'
-import { CartContext } from '../context/CartContext'
+import { Link } from 'react-router-dom'
+import escuelaImg from '../assets/escuela-musicalia.jpg' // asegurate de tener esta imagen en tu carpeta de assets
 
-const Home = ({ agregarCarrito,  }) => {
-
-  const {cargando} = useContext(CartContext) 
-
+const Home = () => {
   return (
     <>
       <Header />
-      <main>
 
-        <p> Musicalia es más que una tienda de cursos online; es un espacio donde la música y el aprendizaje se encuentran para crear experiencias únicas.</p>
-        {
-          cargando ? <img src={loading} alt='loading' /> :
+      <main className="inicio">
+        <div className="descripcion">
+          <h1>Musicalia es el lugar ideal para aprender música online </h1>
+          <Link to="/Productos" className="btnVerCursos">Ver todos los cursos</Link>
+        </div>
 
-          <ProductList />
-        }
-
-
+        <div className="imagenEscuela">
+          <img src={escuelaImg} alt="Escuela Musicalia" />
+        </div>
       </main>
-
-
 
       <Footer />
     </>

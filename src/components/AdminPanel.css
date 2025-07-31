@@ -1,0 +1,18 @@
+.admin-panel {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fcfcff;
+  border-radius: 10px;
+}
+
+.admin-panel h1 {
+  color: #6c30ff;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.productos-section,
+.carrito-section {
+  margin-bottom: 2rem;
+}

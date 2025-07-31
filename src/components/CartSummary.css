@@ -1,0 +1,40 @@
+.cart-panel {
+  padding: 2rem;
+  background-color: #f8f8ff;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.cart-list {
+  list-style: none;
+  padding: 0;
+}
+
+.cart-card {
+  background-color: #fff;
+  border-left: 5px solid #a471ff;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.cart-card h3 {
+  margin: 0;
+}
+
+.cart-card button {
+  margin-top: 0.5rem;
+  padding: 0.3rem 1rem;
+  background-color: #ff7a7a;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+.cart-total {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  color: #4c0099;
+}
+ 
