@@ -21,14 +21,13 @@ const ProductList = () => {
     <div>
       <h2 className="tituloGrid">Nuestros cursos musicales 🎵</h2>
 
-      {/* 🎶 Contenedor con estilo horizontal */}
+    
       <div className="card-container">
         {currentProducts.map(producto => (
           <Productos key={producto.id} producto={producto} />
         ))}
       </div>
 
-      {/* 🎼 Paginador visual con íconos */}
       <div className="pagination">
         <button onClick={() => setCurrentPage(currentPage - 1)} disabled={currentPage === 1}>
           🎶 Anterior

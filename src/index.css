@@ -11,7 +11,7 @@
 }
 
 main {
-  margin-top: 80px;
+  margin-top: 80px; 
 }
 
 body {
@@ -29,7 +29,7 @@ a:hover {
 
 
 h1 {
-  font-size: 3.2em;
+  font-size: 14px;
   line-height: 1.1;
 }
 

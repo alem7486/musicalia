@@ -76,7 +76,7 @@ const DetallesProductos = () => {
           Stock: {product.stock}
         </p>
         <Link
-          to="/"
+          to="/Productos"
           style={{
             display: 'inline-block',
             padding: '0.5rem 1.5rem',
@@ -88,7 +88,7 @@ const DetallesProductos = () => {
             marginTop: '1rem',
           }}
         >
-          Volver a Home
+          Volver a cursos
         </Link>
       </section>
       <Footer />

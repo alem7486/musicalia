@@ -25,7 +25,6 @@ const Productos = ({ producto }) => (
     <div className="nombre">{producto.nombre}</div>
     <div className="precio">${producto.precio}</div>
     <div className="stock">{producto.stock} disponibles</div>
-    {/* cantidad + botón + link */}
   </div>
 );
 
