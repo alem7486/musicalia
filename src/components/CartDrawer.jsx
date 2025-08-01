@@ -8,7 +8,7 @@ const CartDrawer = ({ isCartOpen, toggleCart }) => {
   return (
     <div className={`cart-drawer ${isCartOpen ? 'open' : ''}`}>
       <div className="cart-header">
-        <h2>🎵 Tu carrito musical</h2>
+        <h2>Tu carrito</h2>
         <button className="close-button" onClick={toggleCart}>✖</button>
       </div>
 
@@ -17,7 +17,9 @@ const CartDrawer = ({ isCartOpen, toggleCart }) => {
           cartItems.map(item => (
             <div key={item.id} className="cart-item">
               <p><strong>{item.nombre}</strong> × {item.quantity}</p>
-              <p>Total: ${item.precio * item.quantity}</p>
+              <p>Total: ${(Number(item.precio) * item.quantity).toLocaleString('es-AR')}</p>
+
+
               <button
                 onClick={() => removeFromCart(item.id)}
                 className="btn-eliminar"
@@ -27,12 +29,12 @@ const CartDrawer = ({ isCartOpen, toggleCart }) => {
             </div>
           ))
         ) : (
-          <p>🎶 El carrito está vacío</p>
+          <p>El carrito está vacío</p>
         )}
       </div>
 
       <div className="cart-footer">
-        <p>Total: ${getTotal()}</p>
+        <p>Total: ${getTotal().toLocaleString('es-AR')}</p>
         <button className="btnCheckout">✅ Finalizar compra</button>
       </div>
     </div>

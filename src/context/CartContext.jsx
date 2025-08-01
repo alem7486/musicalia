@@ -37,12 +37,11 @@ const addToCart = (item) => {
     setCartItems([]);
   };
 
-  const getTotal = () => {
-    return cartItems.reduce(
-      (total, item) => total + item.price * item.quantity,
-      0
-    );
-  };
+const getTotal = () => {
+  return cartItems.reduce((acc, item) => {
+    return acc + Number(item.precio) * item.quantity;
+  }, 0);
+};
 
   return (
     <CartContext.Provider
