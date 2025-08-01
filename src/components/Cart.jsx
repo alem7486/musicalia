@@ -3,15 +3,16 @@ import React, { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
 
 const Cart = () => {
-  const { cart } = useContext(CartContext);
+ const { cartItems } = useContext(CartContext);
+
 
   return (
     <div className="cart-container">
       <h2>🛒 Tu carrito musical</h2>
 
-      {Array.isArray(cart) && cart.length > 0 ? (
+      {Array.isArray(cartItems) && cartItems.length > 0 ? (
         <ul>
-          {cart.map(item => (
+          {cartItems.map(item => (
             <li key={item.id}>
               <strong>{item.nombre}</strong> - {item.precio} ARS
               {item.cantidad && <span> 🎶 Cantidad: {item.cantidad}</span>}

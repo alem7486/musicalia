@@ -5,8 +5,8 @@
 .card-container {
   display: flex;
   flex-wrap: wrap;     
-  gap: 1rem;              /* Espaciado entre cards */
-  justify-content: center; /* Las centra horizontalmente */
+  gap: 1rem;              
+  justify-content: center; 
 }
 
 .cart-drawer {
@@ -64,7 +64,7 @@
 }
 
 .cart-item li {
-  background-color: #6d9dc5;
+  background-color: #fefefe;
   padding: 8px 12px;
   border-radius: 8px;
   margin-bottom: 8px;

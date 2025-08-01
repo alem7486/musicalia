@@ -15,8 +15,6 @@ import {CartContext} from './context/CartContext'
 function App() {
 const {isAuthenticated} = useContext(CartContext)
   
-console.log('Probando')
-
   return (
     
       <Routes>

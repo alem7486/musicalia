@@ -1,28 +1,40 @@
-import React, { useContext } from 'react'
-import { Link, useParams } from 'react-router-dom'
-import Header from './estaticos/Header'
-import Footer from './estaticos/Footer'
-import { CartContext } from '../context/CartContext'
+import React, { useContext, useEffect, useState } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import Header from './estaticos/Header';
+import Footer from './estaticos/Footer';
+import { CartContext } from '../context/CartContext';
 
-const DetallesProductos = () => {
+const DetallesProducto = () => {
+  const { productos } = useContext(CartContext);
+  const { id } = useParams();
+  const [producto, setProducto] = useState(null);
 
-    const { productos } = useContext(CartContext)
-    const { id } = useParams()
+useEffect(() => {
+  const productoContext = productos?.find(p => p.id == id);
+  if (productoContext) {
+    setProducto(productoContext);
+  } else {
+    fetch(`https://684f521bf0c9c9848d2aae6c.mockapi.io/ecommerce/productos/${id}`)
+      .then(res => res.json())
+      .then(data => setProducto(data))
+      .catch(err => console.error('Error al cargar desde MockAPI:', err));
+  }
+}, [id, productos]); 
 
-    const product = productos.find(producto => producto.id == id)
-
-    if (!product) {
-        return (
-            <div style={{ padding: '2rem', textAlign: 'center' }}>
-                <h1 style={{ color: '#c00' }}>Detalle del producto: {id}</h1>
-                <p style={{ fontSize: '1.2rem' }}>Producto no encontrado</p>
-            </div>
-        )
-    }
-
-
+  if (!producto) {
     return (
-        <>
+      <>
+        <Header />
+        <div style={{ padding: '2rem', textAlign: 'center' }}>
+          <p>Cargando detalles del curso 🎶...</p>
+        </div>
+        <Footer />
+      </>
+    );
+  }
+
+  return (
+    <>
       <Header />
       <section
         style={{
@@ -36,12 +48,12 @@ const DetallesProductos = () => {
         }}
       >
         <h1 style={{ fontSize: '2rem', marginBottom: '1rem', color: '#333' }}>
-          {product.nombre}
+          {producto.nombre}
         </h1>
-        {product.imagen && (
+        {producto.imagen && (
           <img
-            src={product.imagen}
-            alt={product.nombre}
+            src={producto.imagen}
+            alt={producto.nombre}
             style={{
               width: '100%',
               maxHeight: '300px',
@@ -52,10 +64,10 @@ const DetallesProductos = () => {
           />
         )}
         <p style={{ fontSize: '1.1rem', marginBottom: '1rem', color: '#555' }}>
-          {product.descripcion}
+          {producto.descripcion}
         </p>
         <p style={{ fontWeight: 'bold', fontSize: '1.3rem', color: '#007b55' }}>
-          Precio: ${product.precio}
+          Precio: ${producto.precio}
         </p>
         <details style={{ marginBottom: '1.5rem' }}>
           <summary style={{ fontWeight: 'bold', color: '#333' }}>
@@ -63,8 +75,8 @@ const DetallesProductos = () => {
           </summary>
           <ul style={{ paddingLeft: '1.5rem', color: '#555' }}>
             <li>Marca: Acme</li>
-            <li>Categoría: {product.categoria}</li>
-            <li>SKU: {product.id * 1250}</li>
+            <li>Categoría: {producto.categoria || 'Sin categoría'}</li>
+            <li>SKU: {producto.id * 1250}</li>
             <li>Fecha de lanzamiento: {new Date().toLocaleDateString('es-ES', {
               day: 'numeric',
               month: 'long',
@@ -73,7 +85,7 @@ const DetallesProductos = () => {
           </ul>
         </details>
         <p style={{ fontSize: '1rem', color: '#888', marginBottom: '1.5rem' }}>
-          Stock: {product.stock}
+          Stock: {producto.stock}
         </p>
         <Link
           to="/Productos"
@@ -93,7 +105,7 @@ const DetallesProductos = () => {
       </section>
       <Footer />
     </>
-    )
-}
+  );
+};
 
-export default DetallesProductos
+export default DetallesProducto;

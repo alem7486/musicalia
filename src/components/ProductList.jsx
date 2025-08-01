@@ -1,32 +1,35 @@
-import React, { useContext, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Productos from './Productos';
-import { CartContext } from '../context/CartContext';
 import './styleProductos.css';
 
 const ProductList = () => {
-  const { productos } = useContext(CartContext);
-
-  // Estados de paginación
+  const [productos, setProductos] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 6;
 
-  // Cálculo de productos actuales
+  useEffect(() => {
+    fetch('https://684f521bf0c9c9848d2aae6c.mockapi.io/ecommerce/productos')
+      .then(res => res.json())
+      .then(data => setProductos(data))
+      .catch(err => console.error('Error al cargar productos:', err));
+  }, []);
+
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const currentProducts = productos.slice(indexOfFirstProduct, indexOfLastProduct);
-
   const totalPages = Math.ceil(productos.length / productsPerPage);
 
   return (
     <div>
-      <h2 className="tituloGrid">Nuestros cursos musicales 🎵</h2>
+      <h2 className="tituloGrid">Conocé nuestros cursos</h2>
 
-    
-      <div className="card-container">
-        {currentProducts.map(producto => (
-          <Productos key={producto.id} producto={producto} />
-        ))}
-      </div>
+      <div className="carrusel-css">
+  {currentProducts.map(producto => (
+    <div className="slide" key={producto.id}>
+      <Productos producto={producto} />
+    </div>
+  ))}
+</div>
 
       <div className="pagination">
         <button onClick={() => setCurrentPage(currentPage - 1)} disabled={currentPage === 1}>
@@ -52,5 +55,3 @@ const ProductList = () => {
 };
 
 export default ProductList;
-
-

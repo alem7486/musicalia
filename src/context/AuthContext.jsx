@@ -1,6 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { CartContext } from './CartContext';
 
 const AuthContext = createContext();
 
@@ -8,14 +7,14 @@ export const AuthProvider = ({ children }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({});
+  const [isAuth, setIsAuth] = useState(false);
   const navigate = useNavigate();
-  const { setIsAuth } = useContext(CartContext);
 
   useEffect(() => {
-    const isAuthenticated = localStorage.getItem('isAuth') === 'true';
-    if (isAuthenticated) {
+    const authenticated = localStorage.getItem('isAuth') === 'true';
+    if (authenticated) {
       setIsAuth(true);
-      navigate('/productos');
+      navigate('/productos'); // o la ruta que quieras mostrar tras login persistido
     }
   }, []);
 
@@ -47,7 +46,6 @@ export const AuthProvider = ({ children }) => {
       setErrors({ password: 'Credenciales incorrectas' });
     }
 
-    
     console.log('Email enviado:', email);
     console.log('Password enviada:', password);
   };
@@ -59,8 +57,10 @@ export const AuthProvider = ({ children }) => {
         setEmail,
         password,
         setPassword,
-        handleSubmit,
         errors,
+        handleSubmit,
+        isAuth,
+        setIsAuth,
       }}
     >
       {children}

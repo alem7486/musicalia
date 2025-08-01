@@ -8,7 +8,7 @@ const GaleriaDeProductos = ({cart,productos, cargando,agregarCarrito, borrarProd
   return (
     <>
       <Header borrarProducto={borrarProducto} cartItems={cart}/>
-      <h1>Cursos</h1>
+    
       {
           cargando ? <img src={loading} alt='loading' /> :
 
