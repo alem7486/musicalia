@@ -33,7 +33,6 @@ body {
   margin: 0;
 }
 
-/* NAV ITEMS */
 .navbar-nav {
   display: flex;
   flex-direction: row;
@@ -62,7 +61,6 @@ body {
   color: #ffb84d;
 }
 
-/* ICONS */
 .btnCart {
   background: none;
   border: none;
@@ -83,7 +81,6 @@ body {
   color: #ffb84d;
 }
 
-/* MAIN SECTION */
 .inicio {
   display: flex;
   flex-direction: column;
@@ -126,7 +123,6 @@ body {
   background-color: #e0a838;
 }
 
-/* IMAGE GALLERY */
 .imagenEscuela {
   display: flex;
   justify-content: center;
@@ -145,7 +141,7 @@ body {
 
 @media (max-width: 768px) {
   body {
-    padding-top: 240px; /* más espacio para navbar en mobile */
+    padding-top: 240px;
   }
 
   .inicio {

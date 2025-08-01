@@ -1,13 +1,16 @@
-.card {
-  background-color: #ff6e61 !important;
-}
-
 .card-container {
   display: flex;
-  flex-wrap: wrap;     
-  gap: 1rem;              
-  justify-content: center; 
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 0 1rem;
+  gap: 1rem;
 }
+.card {
+  scroll-snap-align: center;
+  min-width: 250px;
+  flex-shrink: 0;
+}
+
 
 .cart-drawer {
   position: fixed;
@@ -25,7 +28,6 @@
   flex-direction: column;
   justify-content: space-between;
 }
-
 
 .cart-drawer.open {
   transform: translateX(0);
@@ -109,7 +111,6 @@
   color: white;
 }
 
-/* Mensaje de carrito vacío */
 .cart-content p {
   text-align: center;
   font-weight: bold;
@@ -117,15 +118,13 @@
   margin-top: 30px;
 }
 
-/* ---------- Estilos nuevos integrados ---------- */
-
 .cart-list {
   list-style: none;
   padding: 0;
 }
 
 .cart-item {
-  border-bottom: 1px solid rgba(255,255,255,0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   padding: 0.7rem 0;
 }
 
@@ -163,4 +162,12 @@
 
 .cart-drawer.open {
   animation: slideInCart 0.4s ease forwards;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
 }

@@ -7,6 +7,7 @@ const AcercaDe = ({cart,borrarProducto}) => {
     <>
       <Header />
       <h1>Quiénes somos</h1>
+      <p>Somos una escuela de música online que abrió sus puertas digitales en 2020.</p>
       <Footer />
     </>
   )

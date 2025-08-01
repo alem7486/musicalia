@@ -30,7 +30,6 @@
   transform: translateY(-4px);
 }
 
-/* Imagen del curso */
 .imagen-curso {
   width: 100%;
   height: 180px;          
@@ -40,7 +39,6 @@
   background-color: #d52a2a;  
 }
 
-/* Título y precio */
 h3 {
   font-size: 20px;
   margin: 8px 0 4px;
@@ -56,20 +54,19 @@ h3 {
 }
 
 .precio {
-  color: #555;
+  color: #535eeb;
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 10px;
 }
 
-/* Selector de cantidad */
 .cantidad-selector {
   display: flex;
   align-items: center;
   gap: 8px;
   margin-bottom: 12px;
    color: #535eeb;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 input[type="number"] {
@@ -80,7 +77,6 @@ input[type="number"] {
   border: 1px solid #640b0b;
 }
 
-/* Botón de agregar */
 .btn-agregar {
   background-color: #5f27cd;
   color: white;
@@ -96,7 +92,7 @@ input[type="number"] {
   background-color: #341f97;
 }
 
-/* Responsive para mobile */
+
 @media (max-width: 768px) {
   .productos-grid {
     justify-content: center;

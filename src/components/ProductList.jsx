@@ -33,7 +33,7 @@ const ProductList = () => {
 
       <div className="pagination">
         <button onClick={() => setCurrentPage(currentPage - 1)} disabled={currentPage === 1}>
-          🎶 Anterior
+          Anterior
         </button>
 
         {Array.from({ length: totalPages }, (_, i) => (
@@ -47,7 +47,7 @@ const ProductList = () => {
         ))}
 
         <button onClick={() => setCurrentPage(currentPage + 1)} disabled={currentPage === totalPages}>
-          Siguiente 🎸
+          Siguiente
         </button>
       </div>
     </div>
