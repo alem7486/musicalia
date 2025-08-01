@@ -36,7 +36,8 @@ const Productos = ({ producto }) => {
           type="number"
           min="1"
           value={cantidadSeleccionada}
-          onChange={(e) => setCantidadSeleccionada(e.target.value)}
+          onChange={(e) => setCantidadSeleccionada(Number(e.target.value))}
+
         />
       </div>
 

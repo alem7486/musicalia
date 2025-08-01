@@ -1,21 +1,24 @@
-// Cart.jsx
 import React, { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
+import './styleCart.css'; 
 
 const Cart = () => {
- const { cartItems } = useContext(CartContext);
-
+  const { cartItems, removeFromCart } = useContext(CartContext);
 
   return (
     <div className="cart-container">
       <h2>🛒 Tu carrito musical</h2>
 
       {Array.isArray(cartItems) && cartItems.length > 0 ? (
-        <ul>
+        <ul className="cart-list">
           {cartItems.map(item => (
-            <li key={item.id}>
+            <li key={item.id} className="cart-item">
               <strong>{item.nombre}</strong> - {item.precio} ARS
-              {item.cantidad && <span> 🎶 Cantidad: {item.cantidad}</span>}
+              <span className="cantidad-resaltada">🎶 Cantidad: {item.quantity}</span>
+              <p>Total por curso: ${item.precio * item.quantity}</p>
+              <button onClick={() => removeFromCart(item.id)} className="btn-eliminar">
+                ❌ Eliminar
+              </button>
             </li>
           ))}
         </ul>
